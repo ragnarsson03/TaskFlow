@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: 'https://github.com/ragnarsson03/TaskFlow?tab=readme-ov-file#react--typescript--vite',  // <-- reemplaza "tu-repo" con el nombre exacto de tu repo
   plugins: [react()],
-})
+});
