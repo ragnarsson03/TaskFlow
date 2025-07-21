@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import type { Task } from '../store/tasks';
 import { toggleTask, deleteTask } from '../store/slices/tasksSlice';
+import { toast } from 'react-toastify';
 
 interface TaskItemProps {
   task: Task;
@@ -11,10 +12,16 @@ const TaskItem = ({ task }: TaskItemProps) => {
 
   const handleToggle = () => {
     dispatch(toggleTask(task.id));
+    toast.info(`🎉 ¡Tarea "${task.text}" actualizada!`);
   };
 
   const handleDelete = () => {
-    dispatch(deleteTask(task.id));
+    if (task.id === 4) {
+      toast.error('🚫 ¡No puedes eliminar esta tarea sagrada!');
+    } else {
+      dispatch(deleteTask(task.id));
+      toast.success(`🗑️ ¡Tarea "${task.text}" eliminada!`);
+    }
   };
 
   return (

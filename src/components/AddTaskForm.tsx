@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../store/slices/tasksSlice';
 import type { Task } from '../store/tasks';
+import { toast } from 'react-toastify';
 
 const AddTaskForm = () => {
   const [taskText, setTaskText] = useState('');
@@ -9,7 +10,10 @@ const AddTaskForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (taskText.trim() === '') return;
+    if (taskText.trim() === '') {
+      toast.error('🤔 ¡La tarea no puede estar vacía!');
+      return;
+    }
 
     const newTask: Task = {
       id: Date.now(), // Simple unique ID
@@ -18,6 +22,7 @@ const AddTaskForm = () => {
     };
 
     dispatch(addTask(newTask));
+    toast.success('✅ ¡Tarea añadida con éxito!');
     setTaskText('');
   };
 
