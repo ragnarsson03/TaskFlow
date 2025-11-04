@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+# Gestor de Tareas Dinámico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web sencilla pero potente para gestionar tus tareas diarias. Creada con React, Redux Toolkit y Vite, esta herramienta te permite organizar tu día a día de forma eficiente.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Añadir Tareas:** Agrega nuevas tareas a tu lista de forma rápida.
+- **Marcar como Completadas:** Lleva un seguimiento de tu progreso marcando las tareas como completadas.
+- **Eliminar Tareas:** ¿Ya no necesitas una tarea? ¡Elimínala con un solo clic!
+- **Notificaciones Interactivas:** Recibe confirmación visual de tus acciones (añadir, actualizar, eliminar).
+- **Estado Centralizado:** Las tareas se gestionan a través de un estado global con Redux Toolkit.
 
-## Expanding the ESLint configuration
+## 🚀 Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend:**
+  - [React](https://reactjs.org/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Redux Toolkit](https://redux-toolkit.js.org/) para el manejo de estado.
+  - [React Toastify](https://fkhadra.github.io/react-toastify/introduction) para notificaciones.
+- **Herramientas de Desarrollo:**
+  - [Vite](https://vitejs.dev/) como empaquetador y servidor de desarrollo.
+  - [ESLint](https://eslint.org/) para el linting de código.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Instalación y Uso
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Sigue estos pasos para ejecutar el proyecto en tu entorno local.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/tu-usuario/tu-repositorio.git
+    cd tu-repositorio
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3.  **Inicia el servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+    La aplicación estará disponible en el puerto que Vite asigne (generalmente `http://localhost:5173`).
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📜 Scripts Disponibles
+
+En el archivo `package.json`, puedes encontrar los siguientes scripts:
+
+- `npm run dev`: Inicia la aplicación en modo de desarrollo.
+- `npm run build`: Compila la aplicación para producción.
+- `npm run lint`: Ejecuta el linter para revisar el código.
+- `npm run preview`: Sirve la build de producción localmente.
+- `npm run deploy`: Despliega la aplicación en GitHub Pages.
